@@ -1,0 +1,112 @@
+@media (min-width: 300px) {
+
+    /* ------- Reset ----- */
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    a {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        font-size: 16px;
+        color: #000000;
+        text-decoration: none;
+    }
+
+    body {
+        font-size: 24px;
+        font-weight: 600;
+        height: max-content;
+        background-color: #B1B9BB;
+        font-family: 'Inter';
+
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    th {
+        font-size: 14px;
+        text-align: left;
+    }
+
+    td {
+        font-size: 14px;
+    }
+
+    /* ------- Header ----- */
+
+    header {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        min-height: 200px;
+        background-image: url(./images/banner/Banner1_Mobile.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #RentalLogo {
+        position: relative;
+        top: 16px;
+        width: 207px;
+        height: 37px;
+    }
+
+    /* ---------- Card_Info ---------- */
+
+    #Info_Cards {
+        margin-top: -36px;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .Card {
+        width: 276px;
+        height: 146px;
+        background-color: #374A8B;
+        margin-bottom: 24px;
+        border-radius: 16px;
+        padding: 24px;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .Card.RentedCard {
+        background-color: #4A8B37;
+    }
+
+    .CardTitle {
+        font-size: 28px;
+    }
+
+    /* -------- Car Cards ----- */
+
+    .AddButton {
+        margin-bottom: 60px;
+    }
+
+    .CarCardSection {
+        display: flex;
+        justify-content: center;
+    }
+
+    .CarCard {
+        background-color: #ffffffff;
+        width: 75.5555555556%;
+        height: 250px;
+        border-radius: 16px;
+        margin-bottom: 40px;
+        padding: 32px 24px;
+    }
+
+    .CarCard_Title {
+        font-size: 20px;
+    }
+
+}
