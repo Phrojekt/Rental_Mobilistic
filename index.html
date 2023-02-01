@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locadora CarsPE</title>
+    <title>Rental Mobilistic</title>
 
     <link rel="shortcut icon" href="images/fav-icon/sedan-car-front.png" type="image/x-icon">
 
@@ -21,10 +21,10 @@
     </header>
 
     <main class="Main_Container">
-        <div id="Info_Cards">
+        <section id="Info_Cards">
             <div class="Card">
                 <div class="CardTitle">Total de Carros</div>
-                <div class="TotalCar">23</div>
+                <div class="TotalCar"></div>
                 <table class="Table TotalTable">
                     <thead>
                         <tr>
@@ -33,16 +33,16 @@
                             <th>SUV</th>
                         </tr>
                         <tr>
-                            <td>x</td>
-                            <td>x</td>
-                            <td>x</td>
+                            <td class="sedan-total"></td>
+                            <td class="hatch-total"></td>
+                            <td class="suv-total"></td>
                         </tr>
                     </thead>
                 </table>
             </div>
             <div class="Card RentedCard">
                 <div class="CardTitle">Carros Alugados</div>
-                <div class="RentedCars">23</div>
+                <div class="RentedCars"></div>
                 <table class="Table RentedTable">
                     <thead>
                         <tr>
@@ -51,30 +51,43 @@
                             <th>SUV</th>
                         </tr>
                         <tr>
-                            <td>x</td>
-                            <td>x</td>
-                            <td>x</td>
+                            <td class="SedanCars"></td>
+                            <td class="HatchCars"></td>
+                            <td class="SUVCars"></td>
                         </tr>
                     </thead>
                 </table>
             </div>
-        </div>
+        </section>
 
-        <div class="Content">
+        <section class="AddButton">
             <a href="#" onclick="Modal.open()" class="AddButton">
                 <img src="./images/icons/AddCar_Icon.svg" alt="">
                 Adicionar Carro</a>
-        </div>
+        </section>
 
-        <div class="CarCardSection">
-            <div class="CarCard">
-                <div class="CarCard_Container">
-                    <div class="CarCard_Title">Modelo de Carro</div>
-                </div>
+        <section class="CarCardSection" id="CarsSection">
+            
+        </section>
+    </main>
+
+    <div class="Modal_overlay">
+        <div class="modal">
+            <div class="Modal_Title">Registrar</div>
+            <form id="Form">
+                <label for="CarOwner">Dono do Carro</label>
+                <input type="text" data-index="new" name="CarOwner" id="CarOwner" class="Input_Style" placeholder="Digite o nome" required>
+                <label for="CarType">Tipo do Carro</label>
+                <input type="text" name="CarType" id="CarType" class="Input_Style" placeholder="Sedan, SUV ou Hatch" required>
+                <label for="CarModel">Marca e Modelo</label>
+                <input type="text" name="CarModel" id="CarModel" class="Input_Style" placeholder="Marca | Modelo" required>
+            </form>
+            <div class="Form_Buttons">
+                <button class="CancelButton" onclick="Modal.close()">Cancelar</button>
+                <button id="SaveButton" onclick="saveCar()">Salvar</button>
             </div>
         </div>
-
-    </main>
+    </div>
 
 </body>
 </html>

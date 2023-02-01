@@ -36,12 +36,22 @@
         font-size: 14px;
     }
 
+    ::placeholder {
+        color: #1F4D5F;
+    }
+
+    label {
+        color: #ffffffff;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
     /* ------- Header ----- */
 
     header {
         display: flex;
         justify-content: center;
-        width: 100vw;
+        width: 100%;
         min-height: 200px;
         background-image: url(./images/banner/Banner1_Mobile.svg);
         background-repeat: no-repeat;
@@ -85,28 +95,250 @@
         font-size: 28px;
     }
 
+    /* -------- Modal ------- */
+
+    .Modal_overlay {
+        width: 100%;
+        height: 100%;
+    
+        background-color: rgba(0, 0, 0, 0.7);
+    
+        position: fixed;
+        top: 0;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        opacity: 0;
+        visibility: hidden; 
+    
+        z-index: 999;
+    }
+    
+    .Modal_overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .modal {
+        padding: 28px 10px 0px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 350px;
+
+        background: #0F1F23;
+        border-radius: 25px;
+    }
+
+    .Modal_Title {
+        font-size: 34px;
+        color: #FFFEFE;
+        margin-bottom: 18px;
+    }
+
+    .Input_Style {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 10px 6px;
+        gap: 10px;
+        width: 300px;
+        height: 22px;
+
+        background: #DFE2DF;
+        border-radius: 10px;
+        border-style: none;
+        margin-bottom: 8px;
+    }
+
+    .Form_Buttons {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        gap: 16px;
+    }
+
+    .CancelButton {
+        font-size: 20px;
+        border-style: none;
+        color: #ffffffff;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        gap: 10px;
+
+        width: 148px;
+        height: 44px;
+
+        background: #8B3937;
+        border-radius: 20px;
+    }
+
+    #SaveButton {
+        font-size: 20px;
+        border-style: none;
+        color: #ffffffff;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        gap: 10px;
+
+        width: 148px;
+        height: 44px;
+
+        background: #4A8B37;
+        border-radius: 20px;
+    }
+
     /* -------- Car Cards ----- */
 
     .AddButton {
-        margin-bottom: 60px;
+        display: inline-block;
+        margin-bottom: 30px;
     }
 
     .CarCardSection {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
 
     .CarCard {
         background-color: #ffffffff;
-        width: 75.5555555556%;
-        height: 250px;
+        width: 240px;
         border-radius: 16px;
-        margin-bottom: 40px;
-        padding: 32px 24px;
+        margin-bottom: 20px;
+        padding: 32px 24px 16px;
+    }
+
+    .First_Line {
+        display: flex;
+        align-items: center;
+        margin-bottom: 24px;
+    }
+
+    .CarCard_States {
+        display: flex;
+        justify-content: center;
+        width: 45px;
+        padding: 4px 4px;
+        background-color: #4A8B37;
+    }
+
+    .CarCard_States.Locked {
+        background-color: #8B3937;
+    }
+
+    .State_Icon {
+        width: 16px;
+        height: 22px;
+    }
+
+    .CarCard_States:hover {
+        cursor: pointer;
     }
 
     .CarCard_Title {
+        width: 195px;
+        max-height: 24px;
+        overflow: auto;
+        text-overflow: ellipsis;
         font-size: 20px;
     }
 
+    .Image_Line {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 22px;
+    }
+
+    .DataSection {
+        font-weight: 600;
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .DataSectionFirst {
+        display: flex;
+        height: 30px;
+    }
+
+
+    #model {
+        max-height: 20px;
+        overflow: auto;
+        text-overflow: ellipsis;
+    }
+
+    .Crud_Buttons {
+        display: flex;
+        gap: 18px;
+    }
+
+    .DeleteButton, .EditButton {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        gap: 10px;
+        width: 108px;
+        height: 30.8px;
+        background-color: #8B3937;
+        border-radius: 5px;
+        border-style: none;
+
+        font-size: 20px;
+        color: #ffffffff;
+    }
+
+    .EditButton {
+        background-color: #374A8B;
+    }
+
+    .EditButton:hover, .DeleteButton:hover, .CancelButton:hover, #SaveButton:hover {
+        cursor: pointer;
+    }
+
+}
+
+
+@media (min-width: 444px) {
+    header {
+        background-position: center;
+    }
+}
+
+@media (min-width: 900px) {
+
+    header {
+        height: 444px;
+        background-position: bottom;
+    }
+
+
+    #Info_Cards {
+        width: 870px;
+        margin-top: -280px;
+        margin-bottom: 90px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        
+    }
+
+    .AddButton {
+        margin-bottom: 15px;
+    }
+
+    .CarCardSection {
+        display: grid;
+        max-width: 100%;
+        justify-content: start;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        justify-items: start;
+        gap: 10px;
+    }
 }
