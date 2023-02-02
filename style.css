@@ -27,6 +27,10 @@
         align-items: center;
     }
 
+    footer {
+        margin-top: 30px;
+    }
+
     th {
         font-size: 14px;
         text-align: left;
@@ -61,8 +65,8 @@
     #RentalLogo {
         position: relative;
         top: 16px;
-        width: 207px;
-        height: 37px;
+        width: 257px;
+        height: 87px;
     }
 
     /* ---------- Card_Info ---------- */
@@ -211,7 +215,7 @@
         background-color: #ffffffff;
         width: 240px;
         border-radius: 16px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         padding: 32px 24px 16px;
     }
 
@@ -264,7 +268,7 @@
 
     .DataSectionFirst {
         display: flex;
-        height: 30px;
+        height: 25px;
     }
 
 
@@ -272,6 +276,10 @@
         max-height: 20px;
         overflow: auto;
         text-overflow: ellipsis;
+    }
+
+    #ID_Registered {
+        height: 25px;
     }
 
     .Crud_Buttons {
@@ -331,6 +339,10 @@
 
     .AddButton {
         margin-bottom: 15px;
+    }
+
+    .CarCard {
+        margin-bottom: 0px;
     }
 
     .CarCardSection {

@@ -32,9 +32,14 @@ const createCar = (car) => {
 
 const isValidFields = () => {
 
-    const CarType = document.querySelector('#CarType').value;
-    if (CarType !== 'Sedan' && CarType !== 'SUV' && CarType !== 'Hatch') {
-        alert('Ocorreu um erro, por favor escolha Sedan, SUV ou Hatch.');
+
+    const TypeValue = document.querySelector('#CarType').value;
+    const CarType = TypeValue[0].toUpperCase() + TypeValue.substring(1).toLowerCase();
+    
+    console.log(CarType)
+
+    if (CarType !== 'Sedan' && CarType !== 'Suv' && CarType !== 'Hatch') {
+        alert('Ocorreu um erro, por favor escolha Sedan, Suv ou Hatch.');
         return;
     }
 
@@ -46,14 +51,26 @@ const clearFields = () => {
    fields.forEach(field => field.value = "")
 }
 
+function generateId() {
+    const timestamp = new Date().getTime();
+    const randomNumber = Math.floor(Math.random() * 1000000);
+    return `${timestamp}`;
+  }
+
 const saveCar = () => {
     if (isValidFields()) {
+
+        const TypeValue = document.querySelector('#CarType').value;
+        const CarType = TypeValue[0].toUpperCase() + TypeValue.substring(1).toLowerCase();
+
         const car = {
             nome: document.querySelector('#CarOwner').value,
             modelo: document.querySelector('#CarModel').value, 
-            tipo: document.querySelector('#CarType').value,
-            isRented: false
-        }
+            tipo: CarType,
+            isRented: false,
+            ID: generateId()
+          };
+
         const index = document.getElementById('CarOwner').dataset.index
         if( index == 'new') {
             createCar(car)
@@ -92,9 +109,9 @@ const createCard = (car, index) => {
         </div>
         <div class="DataSection">
             <div class="DataSectionFirst">
-                <div id="ID_Registered"> 0${index} </div>
-                <div id="model"> |${car.modelo}</div>
+                <div id="model"> 0${index} &nbsp; | &nbsp;  ${car.modelo}</div>
             </div>
+            <div id="ID_Registered">ID: ${car.ID}</div>
             <div class="CarType">${car.tipo}</div>
         </div>
         <div class="Crud_Buttons">
@@ -201,7 +218,7 @@ const editDelete = (event) => {
 function updateCard() {
     const dbCar = JSON.parse(localStorage.getItem("db_car") || "[]");
     const totalCars = dbCar.length;
-    const carTypes = { Sedan: 0, Hatch: 0, SUV: 0 };
+    const carTypes = { Sedan: 0, Hatch: 0, Suv: 0 };
     
     dbCar.forEach(car => {
       carTypes[car.tipo] = (carTypes[car.tipo] || 0) + 1;
@@ -218,7 +235,7 @@ function updateCard() {
     hatchTotalDiv.innerText = carTypes.Hatch;
 
     const suvTotalDiv = card.querySelector(".suv-total");
-    suvTotalDiv.innerText = carTypes.SUV;
+    suvTotalDiv.innerText = carTypes.Suv;
 }
 
 function countLockedCars() {
@@ -235,7 +252,7 @@ function countLockedCars() {
                 sedanCars++;
             } else if (car.tipo === 'Hatch') {
                 hatchCars++;
-            } else if (car.tipo === 'SUV') {
+            } else if (car.tipo === 'Suv') {
                 suvCars++;
             }
         }
