@@ -200,9 +200,27 @@
 
     /* -------- Car Cards ----- */
 
-    .AddButton {
-        display: inline-block;
+    .Add_Filter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Filter_Input {
+        max-width: 200px;
         margin-bottom: 30px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 10px 6px;
+        gap: 10px;
+        background: #DFE2DF;
+        border-radius: 10px;
+        border-style: none;
+    }
+
+    .AddButton {
+        margin-bottom: 10px;
     }
 
     .CarCardSection {
@@ -321,6 +339,13 @@
 
 @media (min-width: 900px) {
 
+    .Main_Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+    }
+
     header {
         height: 444px;
         background-position: bottom;
@@ -337,20 +362,34 @@
         
     }
 
-    .AddButton {
-        margin-bottom: 15px;
+    .Add_Filter {
+        width: 870px;
+        margin-bottom: 30px;
     }
 
-    .CarCard {
+    .Add_Filter_Container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .AddButton {
+        align-self: center;
         margin-bottom: 0px;
     }
 
+    .Filter_Input {
+        margin-bottom: 0px;
+    }
+
+    .CarCard {
+        margin: 5px 5px;
+    }
+
     .CarCardSection {
-        display: grid;
-        max-width: 100%;
-        justify-content: start;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        justify-items: start;
-        gap: 10px;
+        display: flex;
+        width: 914px;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 }

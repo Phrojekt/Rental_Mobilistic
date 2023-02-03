@@ -7,6 +7,26 @@ const Modal = {
 const getLocalStorage = () => JSON.parse(localStorage.getItem('db_car')) ??  []
 const setLocalStorage = (dbCar) => localStorage.setItem('db_car', JSON.stringify(dbCar))
 
+const FilterFunction = () => {
+    const InputValue = document.querySelector('#FilterData').value;
+    const carCards = document.querySelectorAll('.CarCard');
+  
+    carCards.forEach(card => {
+        const carData = card.querySelectorAll('.DataSectionFirst, .CarType, .CarCard_Title, #ID_Registered');
+        let hasMatch = false;
+        carData.forEach(data => {
+            if (data.textContent.includes(InputValue)) {
+                hasMatch = true;
+            }
+        });
+        if (!hasMatch) {
+            card.style.display = 'none';
+        } else {
+            card.style.display = '';
+        }
+    });
+}
+
 
 // ---------- Crud ------------
 
@@ -35,8 +55,6 @@ const isValidFields = () => {
 
     const TypeValue = document.querySelector('#CarType').value;
     const CarType = TypeValue[0].toUpperCase() + TypeValue.substring(1).toLowerCase();
-    
-    console.log(CarType)
 
     if (CarType !== 'Sedan' && CarType !== 'Suv' && CarType !== 'Hatch') {
         alert('Ocorreu um erro, por favor escolha Sedan, Suv ou Hatch.');
@@ -149,7 +167,6 @@ const ChangeState = (index) => {
     localStorage.setItem("db_car", JSON.stringify(dbCar));
     window.location.reload()
 }  
-
 
 const clearScreen = () => {
     const Cards = document.querySelectorAll('.CarCard')
@@ -265,11 +282,12 @@ function countLockedCars() {
 }
 
 
-
 updateCard()
 updateScreen()
 countLockedCars()
 
-
 document.querySelector('#CarsSection')
     .addEventListener('click', editDelete)
+
+document.querySelector('#FilterData')
+    .addEventListener('input', FilterFunction)
